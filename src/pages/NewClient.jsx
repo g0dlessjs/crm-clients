@@ -1,7 +1,8 @@
 import React from "react";
-import { useNavigate, Form, useActionData } from "react-router-dom";
+import { useNavigate, Form, useActionData, redirect } from "react-router-dom";
 import FormNewClient from "../components/FormNewClient";
 import Error from "../components/Error";
+import { addClient } from "../data/clients";
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -20,13 +21,17 @@ export async function action({ request }) {
     "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
   );
 
-  if(!regex.test(email)){
-    errors.push("El Email no es válido")
+  if (!regex.test(email)) {
+    errors.push("El Email no es válido");
   }
 
   if (Object.keys(errors).length) {
     return errors;
   }
+
+  await addClient(data);
+
+  return redirect("/");
 }
 
 const NewClient = () => {
