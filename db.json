@@ -42,6 +42,14 @@
       "phone": "234234423423423",
       "notes": "holi",
       "id": 6
+    },
+    {
+      "name": "Vodka",
+      "company": "Qore",
+      "email": "correo@corre.com",
+      "phone": "234234423423423",
+      "notes": "chau",
+      "id": 7
     }
   ]
 }
