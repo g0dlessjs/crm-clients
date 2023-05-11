@@ -50,7 +50,7 @@ const NewClient = () => {
           className="bg-blue-800 text-white px-3 py-1 font-bold uppercase"
           onClick={() => navigate("/")}
         >
-          Volver
+          Volver|
         </button>
       </div>
 
